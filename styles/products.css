@@ -1,0 +1,181 @@
+/* styles the product section  */
+.products {
+    position: relative;
+    padding: 90px 50px 50px 50px;
+}
+
+/* styles the blur overlay  */
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0);
+    backdrop-filter: blur(8px);
+    transition: opacity 500ms;
+
+    /* hides the overlay  */
+    display: none;
+}
+
+/* shows the overlay, activted when targeted by a href */
+.overlay:target {
+    display: inherit;
+}
+
+.productsNav {
+    padding-bottom: 20px;
+}
+
+.productsNav a {
+    color: gray;
+    font-weight: 550;
+    display: inline;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.productsNav a:hover {
+    color: black;
+}
+
+/* creates the grid to store the cells */
+.productsGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 20px;
+    row-gap: 50px;
+}
+
+/* styles the individual cells  */
+.productCell {
+    height: inherit;
+    border-radius: 10px;
+    box-shadow: 5px 10px 18px black;
+    opacity: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 275px;
+}
+
+.productPic {
+    height: 200px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.productCell p {
+    margin: 0px;
+    text-align: center;
+}
+
+.productName {
+    font-weight: 600;
+}
+
+.productCellButtons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 20px;
+    height: 40px;
+    max-width: 250px;
+}
+
+.productCellButtons * {
+    margin: 5px;
+}
+
+.productCellButtons img {
+    height: 30px;
+    cursor: pointer;
+}
+
+.productCellButtons img:hover {
+    opacity: 0.5;
+}
+
+.productCellButtons img:active {
+    opacity: 0.2;
+}
+
+.productCellButtons button,
+.popup button {
+    background-color: black;
+    color: white;
+    padding: 10px;
+    border-radius: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    height: 40px;
+    width: 85px;
+}
+
+.productCellButtons input {
+    width: 20%;
+    height: 36px;
+    text-align: center;
+}
+
+/* styles the popup container  */
+.popup {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    height: 210px;
+    width: 260px;
+    padding: 20px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.popupContent {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.popupContent ul {
+    margin: 0;
+    list-style: none;
+    padding: 0px;
+
+}
+
+.popupProductPic {
+    width: 50px;
+    border-radius: 5px;
+}
+
+.popupDetails li {
+    display: flex;
+    margin-bottom: 4px;
+}
+
+.popupLabel {
+    font-weight: 600;
+    margin-right: 7px;
+}
+
+/* media query for responsive webpae  */
+@media (max-width:1100px) {
+    .productsGrid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width:700px) {
+    .productsGrid {
+        grid-template-columns: 1fr;
+    }
+
+}

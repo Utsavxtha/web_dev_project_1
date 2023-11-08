@@ -1,0 +1,141 @@
+.hero {
+    position: relative;
+    padding-top: 83px;
+    height: 100vh;
+    background-image: url(/assets/heroSectionBackground.jpg);
+    max-height: 1000px;
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-origin: content-box;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero div {
+    top: -10vh;
+
+}
+
+/* adds the dark overlay over bgimg */
+.hero::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 83px;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    max-height: 1000px;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2;
+}
+
+/* styles the large logo and animates it */
+.logoAnimation {
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    font-size: 256px;
+    -webkit-text-stroke: 5px white;
+    font-weight: 800;
+    color: transparent;
+    font-family: 'Poppins', sans-serif;
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    background: position y 50px;
+    background-image: url(/assets/animate.png);
+    background-size: 100% 100%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: logoBgAnimation 15s linear infinite;
+    z-index: 3;
+}
+
+.frontButtons {
+    display: flex;
+    position: relative;
+    max-width: 422px;
+    justify-content: space-between;
+    z-index: 4;
+    margin: 0px;
+    padding: 0;
+    top: -70px;
+}
+
+.heroCallNowButton {
+    height: 80px;
+    width: 240px;
+    border-radius: 40px;
+    background-color: transparent;
+    border-width: 3px;
+    border-color: white;
+    border-style: solid;
+    color: white;
+    font-weight: bold;
+    font-size: 28px;
+    cursor: pointer;
+    margin-right: 3px;
+}
+
+.heroFindUsButton {
+    height: 80px;
+    width: 240px;
+    border-radius: 40px;
+    background-color: white;
+    border: none;
+    color: black;
+    font-weight: bold;
+    font-size: 28px;
+    cursor: pointer;
+    margin-left: 3px;
+}
+
+/* media query for responsive webpage */
+@media (max-width:1100px) {
+    .logoAnimation {
+        font-size: 200px;
+    }
+}
+
+@media (max-width:850px) {
+    .logoAnimation {
+        font-size: 80px;
+        -webkit-text-stroke: 3px white;
+    }
+
+    .frontButtons {
+        top: -2%;
+    }
+
+    .heroCallNowButton,
+    .heroFindUsButton {
+        height: 50px;
+        width: 150px;
+        border-radius: 25px;
+        font-size: 17px;
+    }
+}
+
+@media(min-width:200vh) {
+    .hero {
+        background-size: 100% 100%;
+    }
+}
+
+/* declares the type of animation  */
+@keyframes logoBgAnimation {
+    from {
+        background-position-x: 0;
+    }
+
+    to {
+        background-position-x: 2000px;
+    }
+}

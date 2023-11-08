@@ -1,0 +1,136 @@
+/* styles the footer  */
+.footer {
+    background-color: black;
+    color: white;
+    min-height: 300px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: start;
+    padding: 0px;
+}
+
+.websiteLinks,
+.address ,
+.contacts {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    margin-bottom: 30px;
+    width: 100%;
+}
+
+.websiteLinks {
+    position: relative;
+    flex: 1;
+    margin-left: 7%;
+    width: auto;
+    left: 5%;
+}
+
+.address {
+    flex: 1.5;
+}
+
+.websiteLinks p,
+.address p,
+.contacts p {
+    font-size: 40px;
+    font-weight: bolder;
+    margin: 20px 0 20px 0;
+}
+
+.websiteLinks ul {
+    font-size: 20px;
+    padding-left: 0px;
+}
+
+.map {
+    height: auto;
+    width: 80%;
+}
+
+.contacts {
+    flex: 1;
+}
+
+.contactLinks {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: min-content;
+    gap: 5px;
+    background-color: black;
+}
+
+
+.contactLinks button {
+    height: 70px;
+    width: 130px;
+    border-radius: 16px;
+    font-weight: bolder;
+    font-size: 17px;
+    color: white;
+    background-image: radial-gradient(gray 10%, black);
+    border: 1px solid white ;
+    margin: 0;
+    padding: 0px;
+    cursor: pointer;
+}
+
+.socialMediaLogoContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.socialMediaLogo {
+    width: 100%;
+}
+
+
+.socialMediaButton {
+    display: none;
+}
+
+/* media query for responsive webpages */
+@media (max-width: 800px) {
+    .footer {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contactLinks {
+        grid-template-columns: 1fr;
+        margin-bottom: 50px;
+    }
+
+    .map {
+        width: 80%;
+    }
+
+    .contactLinks button {
+        width: 250px;
+        background-image: linear-gradient(gray 10%,black);
+        margin-bottom: 5px;
+    }
+
+    .websiteLinks,
+    .address,
+    .contacts {
+        justify-content: center;
+        align-items: center;
+        left: 0;
+    }
+
+    .websiteLinks {
+        margin: 0px;
+        padding-right: 0px;
+    }
+
+    .socialMediaLogoContainer {
+        display: none;
+    }
+
+    .socialMediaButton {
+        display: inherit;
+    }
+}

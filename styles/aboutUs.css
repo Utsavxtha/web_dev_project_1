@@ -1,0 +1,76 @@
+/* styles the about us section  */
+.aboutUs {
+    display: flex;
+    flex-direction: column;
+}
+
+.aboutUsHeader {
+    display: flex;
+    justify-content: center;
+    font-size: 60px;
+    font-weight: bolder;
+    margin: 3% 1%;
+}
+
+.aboutUsContent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10%;
+}
+
+.bakeryPicContainer {
+    flex: 1;
+    padding: 3%;
+    margin-left: 5%;
+}
+
+
+.aboutUsInfo {
+    flex: 2.5;
+    padding: 0;
+    padding-right: 6%;
+    margin: 0;
+    font-size: 21px;
+    white-space: 2px;
+
+}
+
+.bakeryPic {
+    width: 100%;
+    height: 100%;
+    max-height: 450px;
+}
+
+/* media query for responsive webpages */
+@media (max-width: 1200px) {
+    .aboutUsInfo {
+        font-size: 17px;
+    }
+
+    .bakeryPic {
+        max-height: 350px;
+    }
+}
+
+@media (max-width: 900px) {
+    .aboutUsInfo {
+        font-size: 13px;
+    }
+
+    .bakeryPic {
+        max-height: 250px
+    }
+
+}
+
+@media (max-width:600px) {
+    .aboutUsInfo {
+        font-size: 10px;
+    }
+
+    .bakeryPic {
+        max-height: 150px;
+    }
+
+}

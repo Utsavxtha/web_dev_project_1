@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products </title>
+    <link rel="icon" href="/assets/bakery.png" type="image/x-icon" />
+
+    <!-- adds css from following files -->
+    <link rel="stylesheet" href="styles/general.css">
+    <link rel="stylesheet" href="styles/header.css">
+    <link rel="stylesheet" href="styles/hero.css">
+    <link rel="stylesheet" href="styles/aboutUs.css">
+    <link rel="stylesheet" href="styles/footer.css">
+    <link rel="stylesheet" href="styles/products.css">
+
+    <!-- imports font Poppins from google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="header"><!--adds a top bar to webpage-->
+        <div class="headerLeft"><a href="index.html"><img class="headerLeftLogo" src="assets/logo.png"></a></div>
+        <div class="headerRight">
+            <a href="index.html">
+                <div class="headerButton">Home</div>
+            </a>
+            <a href="products.html">
+                <div class="headerButton">Products</div>
+            </a>
+            <div><a href="#mobileMenuContainer"><img class="hamburger" src="assets/menu_icon.webp"></a></div>
+        </div>
+    </div>
+    <div id="mobileMenuContainer" class="mobileMenuContainer">
+        <!--adds a mobile maenu that is activated by hamburger button-->
+        <div><a href="#"><img id="mobileMenuContainer" class="closeIcon" src="assets/close_icon.webp"></a></div>
+        <div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="products" id="products"><!--grid for prouduct cells-->
+        <div class="overlay" id="overlay"><!--adds an overlay activated when buy now is pressed-->
+            <div class="popup"><!--adds a popup over the overlay-->
+                <div class="popupContent">
+                    <div>
+                        <img class="popupProductPic" src="assets/1.jpeg">
+                    </div>
+                    <div class="popupDetails">
+                        <ul>
+                            <li>
+                                <div class="popupLabel">Products: </div>
+                                <div>Cappuccino</div>
+                            </li>
+                            <li>
+                                <div class="popupLabel">Price: </div>
+                                <div>Rs 180.00</div>
+                            </li>
+                            <li>
+                                <div class="popupLabel">Quantity: </div>
+                                <div>1</div>
+                            </li>
+                            <li>
+                                <div class="popupLabel">Delivery Charge: </div>
+                                <div>Rs 50</div>
+                            </li>
+                            <li>
+                                <div class="popupLabel">Grand Total: </div>
+                                <div>Rs 230.00</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="popupButtons">
+                    <button>Proceed</button>
+                    <a href="#"><button>Close</button></a>
+                </div>
+            </div>
+        </div>
+        <div class="productsNav"><!--adds bar that shows current webpage-->
+            <a href="index.html">Home</a>
+            >
+            <a href="products.html">Products</a>
+        </div>
+        <div class="productsGrid"><!--actual container for product cells grid-->
+            <div class="productCell"><!--indiviual product cells-->
+                <div><img class="productPic" src="assets/1.jpeg"></div>
+                <div>
+                    <p class="productName">Capuccino</strong>
+                </div>
+                <div>
+                    <p class="ProductPrice">Rs 180</p>
+                </div>
+                <div class="productCellButtons">
+                    <a href="#overlay"><button>Buy Now</button></a>
+                    <input type="number" min="1" value="1">
+                    <img onclick="" src="assets/iconPlus.png" alt="">
+                    <img src="assets/iconMinus.png">
+                </div>
+            </div>
+            <div class="productCell">
+                <div><img class="productPic" src="assets/2.jpeg"></div>
+                <div>
+                    <p class="productName">Macaronc Box Pack (8pcs)</p>
+                </div>
+                <div>
+                    <p class="ProductPrice">Rs 1250</p>
+                </div>
+                <div class="productCellButtons">
+                    <a href="#overlay"><button>Buy Now</button></a>
+                    <input type="number" min="1" value="1">
+                    <img onclick="" src="assets/iconPlus.png" alt="">
+                    <img src="assets/iconMinus.png">
+                </div>
+            </div>
+            <div class="productCell">
+                <div><img class="productPic" src="assets/3.jpeg"></div>
+                <div>
+                    <p class="productName">Vanila Pastry Strawberry Topping</p>
+                </div>
+                <div>
+                    <p class="ProductPrice">Rs 120</p>
+                </div>
+                <div class="productCellButtons">
+                    <a href="#overlay"><button>Buy Now</button></a>
+                    <input type="number" min="1" value="1">
+                    <img onclick="" src="assets/iconPlus.png" alt="">
+                    <img src="assets/iconMinus.png">
+                </div>
+            </div>
+            <div class="productCell">
+                <div><img class="productPic" src="assets/4.jpeg"></div>
+                <div>
+                    <p class="productName">Strawberry Cheese Crossiant Sandwich</p>
+                </div>
+                <div>
+                    <p class="ProductPrice">Rs 150/pcs</p>
+                </div>
+                <div class="productCellButtons">
+                    <a href="#overlay"><button>Buy Now</button></a>
+                    <input type="number" min="1" value="1">
+                    <img onclick="" src="assets/iconPlus.png" alt="">
+                    <img src="assets/iconMinus.png">
+                </div>
+            </div>
+            <div class="productCell">
+                <div><img class="productPic" src="assets/5.jpeg"></div>
+                <div>
+                    <p class="productName">Strawberry Cheese Crossiant</p>
+                </div>
+                <div>
+                    <p class="ProductPrice">Rs 180</p>
+                </div>
+                <div class="productCellButtons">
+                    <a href="#overlay"><button>Buy Now</button></a>
+                    <input type="number" min="1" value="1">
+                    <img onclick="" src="assets/iconPlus.png" alt="">
+                    <img src="assets/iconMinus.png">
+                </div>
+            </div>
+            <div class="productCell">
+                <div><img class="productPic" src="assets/6.jpeg"></div>
+                <div>
+                    <p class="productName">Vanila Topped Choclate Muffins (7pcs)</p>
+                </div>
+                <div>
+                    <p class="ProductPrice">Rs 840</p>
+                </div>
+                <div class="productCellButtons">
+                    <a href="#overlay"><button>Buy Now</button></a>
+                    <input type="number" min="1" value="1">
+                    <img onclick="" src="assets/iconPlus.png" alt="">
+                    <img src="assets/iconMinus.png">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer"><!--adds footerr to the webpage-->
+        <div class="websiteLinks">
+            <div>
+                <p>Links</p>
+            </div>
+            <ul>
+                <div>
+                    <a href="index.html">
+                        <li>Home</li>
+                    </a>
+                    <a href="products.html">
+                        <LI>Products</LI>
+                    </a>
+                </div>
+            </ul>
+        </div>
+        <div class="address">
+            <div>
+                <p>Address</p>
+            </div>
+            <div class="map"><iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28268.78649608867!2d85.27376395!3d27.667897!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb1812d78377ef%3A0x8c37cded908543b!2sKirtipur%2044600!5e0!3m2!1sen!2snp!4v1699232511914!5m2!1sen!2snp"
+                    width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+        </div>
+        <div class="contacts">
+            <p>Contacts</p>
+            <div class="contactLinks">
+                <div><a href="tel:+9876543210"><button class="contactLinkButton">CallNow</button></a></div>
+                <div><a href="mailto:sweetznepal@gmail.com"><button class="contactLinkButton">EmailNow</button></a>
+                </div>
+                <div><a href="https://maps.app.goo.gl/8pWCkUtv3un5q45w9"><button class="contactLinkButton">Find
+                            Us</button></a></div>
+                <div class="socialMediaLogoContainer">
+                    <div><a href="https://facebook.com"><img class="socialMediaLogo" src="assets/facebook.svg"></a>
+                    </div>
+                    <div><a href="https://instagram.com"><img class="socialMediaLogo" src="assets/instagram.svg"></a>
+                    </div>
+                </div>
+                <div><a href="https://facebook.com"><button class="socialMediaButton">Facebook</button></a></div>
+                <div><a href="https://instagram.com"><button class="socialMediaButton">Instagram</button></a></div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
