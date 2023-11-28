@@ -1,0 +1,38 @@
+export const products = [
+  {
+    id: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
+    image: "./../assets/products/1.jpeg",
+    name: "Capuccino",
+    price: 180,
+  },
+  {
+    id: "15b6fc6f-327a-4ec4-896f-486349e85a3d",
+    image: "./../assets/products/2.jpeg",
+    name: "Macaronc Box Pack (8pcs",
+    price: 1250,
+  },
+  {
+    id: "83d4ca15-0f35-48f5-b7a3-1ea210004f2e",
+    image: "./../assets/products/3.jpeg",
+    name: "Vanila Pastry Strawberry Topping",
+    price: 120,
+  },
+  {
+    id: "54e0eccd-8f36-462b-b68a-8182611d9add",
+    image: "./../assets/products/4.jpeg",
+    name: "Strawberry Cheese Crossiant",
+    price: 150,
+  },
+  {
+    id: "3ebe75dc-64d2-4137-8860-1f5a963e534b",
+    image: "./../assets/products/5.jpeg",
+    name: "Strawbwrry Cheese Crossiant",
+    price: 180,
+  },
+  {
+    id: "8c9c52b5-5a19-4bcb-a5d1-158a74287c53",
+    image: "./../assets/products/6.jpeg",
+    name: "Vanila Topped Choclate Muffins",
+    price: 840,
+  }
+]

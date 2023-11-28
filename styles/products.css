@@ -13,15 +13,18 @@
     right: 0;
     background: rgba(0, 0, 0, 0);
     backdrop-filter: blur(8px);
-    transition: opacity 500ms;
+    opacity: 0;
+    transition: opacity 5s;
+    z-index: 200;
 
     /* hides the overlay  */
     display: none;
 }
 
 /* shows the overlay, activted when targeted by a href */
-.overlay:target {
+.overlayShow {
     display: inherit;
+    opacity: 1;
 }
 
 .productsNav {
@@ -126,7 +129,7 @@
     justify-content: space-between;
     align-items: center;
     position: absolute;
-    height: 210px;
+    min-height: 210px;
     width: 260px;
     padding: 20px;
     top: 50%;
@@ -135,6 +138,7 @@
     background: white;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 50;
 }
 
 .popupContent {
@@ -142,6 +146,7 @@
     align-items: start;
     justify-content: space-between;
     width: 100%;
+    padding: 0 20px;
 }
 
 .popupContent ul {
@@ -154,6 +159,7 @@
 .popupProductPic {
     width: 50px;
     border-radius: 5px;
+    margin-right: 10px;
 }
 
 .popupDetails li {

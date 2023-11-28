@@ -10,12 +10,12 @@
 }
 
 .websiteLinks,
-.address ,
+.address,
 .contacts {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: start;
+    align-items: center;
     margin-bottom: 30px;
     width: 100%;
 }
@@ -23,13 +23,6 @@
 .websiteLinks {
     position: relative;
     flex: 1;
-    margin-left: 7%;
-    width: auto;
-    left: 5%;
-}
-
-.address {
-    flex: 1.5;
 }
 
 .websiteLinks p,
@@ -41,8 +34,12 @@
 }
 
 .websiteLinks ul {
-    font-size: 20px;
+    font-size: 25px;
     padding-left: 0px;
+}
+
+.address {
+    flex: 1.5;
 }
 
 .map {
@@ -71,7 +68,7 @@
     font-size: 17px;
     color: white;
     background-image: radial-gradient(gray 10%, black);
-    border: 1px solid white ;
+    border: 1px solid white;
     margin: 0;
     padding: 0px;
     cursor: pointer;
@@ -92,7 +89,7 @@
 }
 
 /* media query for responsive webpages */
-@media (max-width: 800px) {
+@media (max-width: 810px) {
     .footer {
         flex-direction: column;
         align-items: center;
@@ -109,7 +106,7 @@
 
     .contactLinks button {
         width: 250px;
-        background-image: linear-gradient(gray 10%,black);
+        background-image: linear-gradient(gray 10%, black);
         margin-bottom: 5px;
     }
 
