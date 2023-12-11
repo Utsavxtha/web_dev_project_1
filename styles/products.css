@@ -105,7 +105,8 @@
 }
 
 .productCellButtons button,
-.popup button {
+.popupCloseButton,
+.popupProceedButton {
     background-color: black;
     color: white;
     padding: 10px;
@@ -120,6 +121,18 @@
     width: 20%;
     height: 36px;
     text-align: center;
+}
+
+.popupProceedButton {
+    position: relative;
+    right: 48px;
+    top: 20px;
+}
+
+.popupCloseButton {
+    position: relative;
+    left: 48px;
+    bottom: 20px;
 }
 
 /* styles the popup container  */
@@ -170,6 +183,11 @@
 .popupLabel {
     font-weight: 600;
     margin-right: 7px;
+}
+
+/* hides the unnecessary form elements */
+.no_display {
+    display: none;
 }
 
 /* media query for responsive webpae  */
