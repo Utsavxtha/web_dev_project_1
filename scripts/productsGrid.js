@@ -1,13 +1,35 @@
-import { products } from "../data/products.js";
 import generateRandomHex from "./utils/generateRandomHex.js";
 import hashGenerator from "./utils/hashGenerator.js";
 
-
+let products = [];
 let productsGridHtml = "";
 
+function fetchJSONData() {
+  fetch("../data/products.json")
+    .then((res) => {  //res: Response
+      if (!res.ok) {
+        throw new Error
+          (`HTTP error! Status: ${res.status}`); //error handling
+      }
+      return res.json(); //a promise; which returns a parsed JSON as 'data' in .then(data)
+    })
+    .then((data) => {  //executed when res.json() successfully parses the JSON 
+      products = data.productData;
+      productHtmlGen(); 
+    }
+    )
+    .catch((error) =>
+      console.error("Unable to fetch data:", error));
+}
+
+
+//had to create the below function because the below block was being executed before the fetch and JSON parse were resolved
+//the below block is executed in the fetchJSONData function at the end
+
 //generates the html for each product in the grid
-products.forEach(productItem => {
-  productsGridHtml += `
+function productHtmlGen() {
+  products.forEach(productItem => {
+    productsGridHtml += `
   <div class="productCell">
                 
                   <div><img class="productPic" src=${productItem.image}></div>
@@ -28,41 +50,42 @@ products.forEach(productItem => {
                 </form>
             </div>
   `
-});
+  });
 
-//puts the generated html for grid in the productGrid element
-document.querySelector(".productsGrid").innerHTML = productsGridHtml;
 
-//shows the popup and generates the html for popup
-document.querySelectorAll(".buyNowButton").forEach(buttonItem => {
-  buttonItem.addEventListener("click", () => {
-    //shows the overlay
-    document.querySelector(".overlay").classList.add("overlayShow");
+  //puts the generated html for grid in the productGrid element
+  document.querySelector(".productsGrid").innerHTML = productsGridHtml;
 
-    //gets product from respective dataset
-    //gets value from the quantity input
-    const { productId } = buttonItem.dataset, { value } = document.querySelector(`.productQuantityInput_${productId}`);
+  //shows the popup and generates the html for popup
+  document.querySelectorAll(".buyNowButton").forEach(buttonItem => {
+    buttonItem.addEventListener("click", () => {
+      //shows the overlay
+      document.querySelector(".overlay").classList.add("overlayShow");
 
-    //loops through all elements in 'products' array
-    products.forEach(productItem => {
-      let matchingItem, popupHtml;
+      //gets product from respective dataset
+      //gets value from the quantity input
+      const { productId } = buttonItem.dataset, { value } = document.querySelector(`.productQuantityInput_${productId}`);
 
-      //checks if the product matches
-      if (productId === productItem.id) {
+      //loops through all elements in 'products' array
+      products.forEach(productItem => {
+        let matchingItem, popupHtml;
 
-        //stores the matched object
-        matchingItem = productItem;
+        //checks if the product matches
+        if (productId === productItem.id) {
 
-        //calculates total
-        let total = (matchingItem.price * value + 50) || 0;
+          //stores the matched object
+          matchingItem = productItem;
 
-        //for esewa api
-        const transaction_uuid = generateRandomHex(16);
-        const input = `total_amount=${total},transaction_uuid=${transaction_uuid},product_code=EPAYTEST`;
-        const signature = hashGenerator(input);
+          //calculates total
+          let total = (matchingItem.price * value + 50) || 0;
 
-        popupHtml =
-          `
+          //for esewa api
+          const transaction_uuid = generateRandomHex(16);
+          const input = `total_amount=${total},transaction_uuid=${transaction_uuid},product_code=EPAYTEST`;
+          const signature = hashGenerator(input);
+
+          popupHtml =
+            `
           <div class="popupContent">
           <div>
               <img class="popupProductPic" src=${matchingItem.image}>
@@ -110,62 +133,35 @@ document.querySelectorAll(".buyNowButton").forEach(buttonItem => {
           <button class="popupCloseButton">Close</button>
         </div>
         `
-        document.querySelector('.popup').innerHTML = popupHtml;
+          document.querySelector('.popup').innerHTML = popupHtml;
 
-        // const transaction_uuid = generateRandomHex(16);
-        // const input = `total_amount=${total},transaction_uuid=${transaction_uuid},product_code=EPAYTEST`;
-        // const signature = hashGenerator(input);
+        }
+      })
 
-        //     document.querySelector(".popupProceedButton").addEventListener('click', event => {
-        //       event.preventDefault();
-
-        //       const getRequestObject = {
-        //         "amount": `${matchingItem.price * value}`,
-        //         "failure_url": "https://google.com",
-        //         "product_delivery_charge": "50",
-        //         "product_service_charge": "0",
-        //         "product_code": "EPAYTEST",
-        //         signature,
-        //         "signed_field_names": "total_amount,transaction_uuid,product_code",
-        //         "success_url": "https://esewa.com.np",
-        //         "tax_amount": "0",
-        //         "total_amount": `${total}`,
-        //         transaction_uuid
-        //       }
-
-        //       fetch('https://rc-epay.esewa.com.np/api/epay/main/v2/form', {
-        //         method: 'POST',
-        //         headers: {
-        //           'Content-Type': 'application/json'
-        //         },
-        //         body: JSON.stringify(getRequestObject)
-        //       })
-
-        //     })
-      }
-    })
-
-    //hides the popup and overlay when 'Close' button is pressed
-    document.querySelector('.popupCloseButton').addEventListener('click', () => {
-      document.querySelector(".overlay").classList.remove("overlayShow");
+      //hides the popup and overlay when 'Close' button is pressed
+      document.querySelector('.popupCloseButton').addEventListener('click', () => {
+        document.querySelector(".overlay").classList.remove("overlayShow");
+      })
     })
   })
-})
 
-//increses the quantity of product selected if '+' button is pressed
-document.querySelectorAll(".productQuantityAdd").forEach(buttonItem => {
-  const { productId } = buttonItem.dataset || '';
-  buttonItem.addEventListener("click", () => {
-    const selectedButton = document.querySelector(`.productQuantityInput_${productId}`);
-    selectedButton.value++;
+  //increses the quantity of product selected if '+' button is pressed
+  document.querySelectorAll(".productQuantityAdd").forEach(buttonItem => {
+    const { productId } = buttonItem.dataset || '';
+    buttonItem.addEventListener("click", () => {
+      const selectedButton = document.querySelector(`.productQuantityInput_${productId}`);
+      selectedButton.value++;
+    })
   })
-})
 
-//decreases the quantity of product selected if '-' button is pressed
-document.querySelectorAll(".productQuantityMinus").forEach(buttonItem => {
-  const { productId } = buttonItem.dataset || '';
-  buttonItem.addEventListener("click", () => {
-    const selectedButton = document.querySelector(`.productQuantityInput_${productId}`);
-    if (selectedButton.value > 1) selectedButton.value--;
+  //decreases the quantity of product selected if '-' button is pressed
+  document.querySelectorAll(".productQuantityMinus").forEach(buttonItem => {
+    const { productId } = buttonItem.dataset || '';
+    buttonItem.addEventListener("click", () => {
+      const selectedButton = document.querySelector(`.productQuantityInput_${productId}`);
+      if (selectedButton.value > 1) selectedButton.value--;
+    })
   })
-})
+}
+
+fetchJSONData();
